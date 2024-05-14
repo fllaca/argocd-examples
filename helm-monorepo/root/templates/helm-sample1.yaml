@@ -1,0 +1,19 @@
+# argo application for sample1
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: sample1
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: "https://github.com/fllaca/argocd-examples"
+    targetRevision: {{ .Values.argoApps.version | default "HEAD" }}
+    path: helm-monorepo/sample1
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: test
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
