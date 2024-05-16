@@ -10,6 +10,9 @@ spec:
     repoURL: "https://github.com/fllaca/argocd-examples"
     targetRevision: {{ .Values.argoApps.version | default "HEAD" }}
     path: helm-monorepo/sample1
+    helm:
+      valuesObject:
+        {{ .Values.sample1 | toYaml | nindent 8 }}
   destination:
     server: https://kubernetes.default.svc
     namespace: test
