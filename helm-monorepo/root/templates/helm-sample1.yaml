@@ -4,6 +4,10 @@ kind: Application
 metadata:
   name: sample1
   namespace: argocd
+  annotations:
+    argocd-image-updater.argoproj.io/image-list: sample1=nginx:~1.19
+    argocd-image-updater.argoproj.io/sample1.helm.image-name: image.repository
+    argocd-image-updater.argoproj.io/sample1.helm.image-tag: image.tag
 spec:
   project: default
   source:
