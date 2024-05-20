@@ -14,6 +14,10 @@ spec:
       parameters:
       - name: argoApps.version
         value: $ARGOCD_APP_SOURCE_TARGET_REVISION
+      valuesObject:
+        sample1:
+          image:
+            tag: 1.19.10
 
   destination:
     server: https://kubernetes.default.svc

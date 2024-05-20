@@ -1,0 +1,22 @@
+{
+  "extends": ["config:base"],
+  "packageRules": [
+    {
+      "matchDatasources": ["docker"],
+      "matchPackageNames": ["nginx"],
+      "versioning": "semver"
+    }
+  ],
+  "customManagers": [
+    {
+      "fileMatch": ["^helm-monorepo/helm-root.yaml$"],
+      "matchStrings": [
+	"image:\\s+tag:\\s+(?<currentValue>[\\w.-]+)"
+      ],
+      "datasourceTemplate": "docker",
+      "depNameTemplate": "nginx",
+      "versioningTemplate": "semver"
+    }
+  ]
+}
+

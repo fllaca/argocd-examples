@@ -1,0 +1,8 @@
+{
+  "repositories": [
+    {
+      "repository": "fllaca/argocd-examples"
+    }
+  ],
+  "baseBranches": ["dev"]
+}
